@@ -1,0 +1,39 @@
+<div class="card">
+    <div class="card-header">
+        Product List
+    </div>
+    <div class="card-body">
+      <div class="container-fluid">
+        <div>
+          <label>Filter by:  </label>&nbsp;&nbsp;
+          <input type="text" [(ngModel)]="filtro">
+          <p *ngIf="filtro ?? false">Filtered by: {{filtro}}</p>
+        </div>
+        <div>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th><button class="btn btn-primary" (click)="mostraNascondiContenuto()">{{isVisible?"Show Image":"Hide Image"}}</button></th>
+                        <th>Product</th>
+                        <th>Code</th>
+                        <th>Available</th>
+                        <th>Price</th>
+                        <th>5 Star Rating</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let prod of productData | filtra: filtro">
+                        <td><img src="{{prod.imageUrl}}" width="80px" [class.d-none]="isVisible"></td>
+                        <td><a [routerLink]="['/product', prod.productId]">{{prod.productName}}</a></td>
+                        <td>{{prod.productCode}}</td>
+                        <td>{{prod.releaseDate}}</td>
+                        <td>{{prod.price | currency:"€"}}</td>
+                        <td>{{prod.starRating}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+      </div>
+    </div>
+  </div>
+  

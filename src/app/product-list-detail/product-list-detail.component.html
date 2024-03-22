@@ -1,0 +1,43 @@
+<div class="card">
+    <div class="card-header">
+        Product Detail: {{product.productName}}
+    </div>
+    <div class="card-body">
+      <div class="container-fluid">
+        <div>
+            <table class="table">
+                    <tr>
+                        <td>Name:</td>
+                        <td>{{product.productName}}</td>
+                        <td rowspan="6" class="text-center" width="50%"><img src="{{product.imageUrl}}" width="70%"></td>
+                    </tr>
+                    <tr>
+                        <td>Code:</td>
+                        <td>{{product.productCode}}</td>
+                    </tr>
+                    <tr>
+                        <td>Description:</td>
+                        <td>{{product.description}}</td>
+                    </tr>
+                    <tr>
+                        <td>Availability:</td>
+                        <td>{{product.releaseDate}}</td>
+                    </tr>
+                    <tr>
+                        <td>Price:</td>
+                        <td>{{product.price | currency:"€"}}</td>
+                    </tr>
+                    <tr>
+                        <td>5 Star Rating:</td>
+                        <td>{{product.starRating}}</td>
+                        <!-- <td><pm-star [rating]="product.starRating"></pm-star></td>-->
+                    </tr>
+            </table>
+        </div>
+      </div>
+    </div>
+    <div class="card-footer">
+        <button routerLink="/product" class="btn btn-primary">Back</button>
+    </div>
+  </div>
+  
